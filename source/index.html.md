@@ -17,28 +17,26 @@ includes:
 search: true
 ---
 
-# Introduction
+# Введение
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Добро пожаловать в  Conomy Data  API!   Вы можете использовать наше API для использования сервиса Conomy Data.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+В документации показаны примеры использования Shell, Ruby, Python, and JavaScript! Вы можете увидеть примеры кода в темной зоне справа, и вы можете переключить язык программирования примеров во вкладках сверху справа.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Аутентификация
 
-# Authentication
-
-> To authorize, use this code:
+> Для авторизации используйте код:
 
 ```ruby
-require 'kittn'
+require 'conomydata'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = conomy-data::APIClient.authorize!('meowmeowmeow')
 ```
 
 ```python
-import kittn
+import conomydata
 
-api = kittn.authorize('meowmeowmeow')
+api = conomy-data.authorize('meowmeowmeow')
 ```
 
 ```shell
@@ -47,44 +45,38 @@ curl "api_endpoint_here"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Убедитесь что заменили `meowmeowmeow` на ваш ключ API.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+Data использует API-ключи для разрешения доступа к API. Вы можете зарегистрировать новый Data API-ключ [на портале для разработчиков](http://conomy.ru/developers).
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Data ожидает что API-ключи будут вложены в хэдер всех API запросов на сервер. Это выглядит так:
 
 `Authorization: meowmeowmeow`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Вы должны заменить <code>meowmeowmeow</code> на Ваш персональный API-ключ.
 </aside>
 
-# Kittens
+# Эмитенты
 
-## Get All Kittens
+## Получить список всех Эмитентов
 
 ```ruby
-require 'kittn'
+require 'conomydata'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+api = conomydata::APIClient.authorize!('meowmeowmeow')
+api.emitents.get
 ```
 
 ```python
-import kittn
+import conomydata
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = conomydata.authorize('meowmeowmeow')
+api.emitents.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
+curl "http://example.com/api/emitents"
   -H "Authorization: meowmeowmeow"
 ```
 
