@@ -1,0 +1,87 @@
+<h1 id='c20326cdba'>Рабочие дни биржи</h1><h2 id='8d73d5a8ff'>Проверить день</h2>
+<blockquote>
+<p>Пример запроса - &quot;Работает ли биржа в следующую пятницу?&quot;</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://data.conomy.ru/api/workingday/"</span><span class="p">,</span>
+                     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token 7449b408f6a7dd35292dffb7ff198d33636770be'</span><span class="p">},</span>
+                     <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'date'</span><span class="p">:</span> <span class="s">'9.12.2001'</span><span class="p">})</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://data.conomy.ru/api/workingday?date=9.12.2001"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Token 7449b408f6a7dd35292dffb7ff198d33636770be"</span>
+</code></pre>
+<p>По этому адресу можно проверить работает ли биржа в указанный день (дату), как в прошлом так и в будущем.</p>
+
+<aside class="notice">
+Еcли этот запрос передать без параметров, то ответом будет результат проверки текущего дня. 
+Пример:
+<code>http://data.conomy.ru/api/workingday/</code>
+</aside>
+
+<blockquote>
+<p>Ответный JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19.12.2001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_is_working"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://data.conomy.ru/api/workingday?date=&lt;date&gt;</code></p>
+
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Формат</th>
+<th>По Умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>д.м.ггг</td>
+<td>Текущий день</td>
+<td>Интересующая дата</td>
+</tr>
+</tbody></table>
+<h2 id='c1c27837dc'>Рабочее время</h2>
+<blockquote>
+<p>Пример запроса - &quot;Работает ли биржа в следующую пятницу в пол пятого?&quot;</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://data.conomy.ru/api/workingday/time/"</span><span class="p">,</span>
+                     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token 7449b408f6a7dd35292dffb7ff198d33636770be'</span><span class="p">},</span>
+                     <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'datetime'</span><span class="p">:</span> <span class="s">'9.12.2001 18:33:00'</span><span class="p">})</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"http://data.conomy.ru/api/workingday/time?datetime=9.12.2001 16:33:00 </span><span class="se">\</span><span class="s2">
+  -H "</span>Authorization: Token 7449b408f6a7dd35292dffb7ff198d33636770be<span class="s2">"
+</span></code></pre>
+<p>Чтобы узнать работает ли биржа в указаный день в указаное время
+передайте в параметре <code>datetime</code> дату и время. Как в примере.</p>
+
+<blockquote>
+<p>Ответный JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08.01.2001 16:33:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_is_working"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://data.conomy.ru/api/workingday/time?datetime=&lt;datetime&gt;</code></p>
+
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Формат</th>
+<th>По Умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>datetime</td>
+<td>д.м.гггг чч:мм:cc</td>
+<td>Текущий день, текущее время</td>
+<td>Интересующая дата и время</td>
+</tr>
+</tbody></table>

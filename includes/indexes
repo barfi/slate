@@ -1,0 +1,32 @@
+<h1 id='2e989efe0d'>Индексы</h1><h2 id='21afb8c965'>Список индексов</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://data.conomy.ru/api/stock/index/"</span><span class="p">,</span>
+                     <span class="n">headers</span><span class="o">=</span><span class="p">{},</span>
+                     <span class="n">data</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://data.conomy.ru/api/stock/index/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+</code></pre>
+<blockquote>
+<p>Ответный JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='f698a53f35'>Детальная информация об Индексе</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://data.conomy.ru/api/stock/index/&lt;symbol&gt;"</span><span class="p">,</span>
+                     <span class="n">headers</span><span class="o">=</span><span class="p">{},</span>
+                     <span class="n">data</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://data.conomy.ru/api/stock/index/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+</code></pre>
+<blockquote>
+<p>Ответный JSON:
+```json
+{</p>
+</blockquote>
+
+<p>}
+```</p>
