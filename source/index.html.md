@@ -48,15 +48,21 @@ curl "http://data.conomy.ru/api/stock/bond/RU000A0JUAH8/" \
 > Этот код вернёт JSON структурированный следующим образом:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  }
-]
+{
+    "history": "/api/stock/bond/RU000A0JUAH8/history/",
+    "price": {},
+    "mat_date": "01.06.2019",
+    "uuid": "1c6cbd29-7116-4332-9188-0b55fdc23bef",
+    "name": "РЖД",
+    "pretty_name": "RJD",
+    "symbol": "RU000A0JUAH8",
+    "conomy_id": 2,
+    "min_step": null,
+    "lot_size": 1,
+    "right": true,
+    "right_primary": false,
+    "stock_exchange": "micex"
+}
 ```
 
 Data использует API-ключи для разрешения доступа к API. Вы можете зарегистрировать новый Data API-ключ [на портале для разработчиков](http://conomy.ru/developers).
